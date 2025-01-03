@@ -18,6 +18,9 @@
 #include <difftest-def.h>
 #include <memory/paddr.h>
 
+__EXPORT const uint32_t to_dut = DIFFTEST_TO_DUT;
+__EXPORT const uint32_t to_ref = DIFFTEST_TO_REF;
+
 __EXPORT void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction) {
   assert(0);
 }
