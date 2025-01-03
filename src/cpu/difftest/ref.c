@@ -22,19 +22,29 @@ __EXPORT const uint32_t to_dut = DIFFTEST_TO_DUT;
 __EXPORT const uint32_t to_ref = DIFFTEST_TO_REF;
 
 __EXPORT void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction) {
-  assert(0);
+  assert(buf);
+  if (direction == (bool)to_dut) {
+    memcpy(buf, guest_to_host(addr), n);
+  } else {
+    memcpy(guest_to_host(addr), buf, n);
+  }
 }
 
 __EXPORT void difftest_regcpy(void *dut, bool direction) {
-  assert(0);
+  assert(dut);
+  if (direction == (bool)to_dut) {
+    memcpy(dut, &cpu, sizeof(cpu));
+  } else {
+    memcpy(&cpu, dut, sizeof(cpu));
+  }
 }
 
 __EXPORT void difftest_exec(uint64_t n) {
-  assert(0);
+  cpu_exec(n);
 }
 
 __EXPORT void difftest_raise_intr(word_t NO) {
-  assert(0);
+  // TODO
 }
 
 __EXPORT void difftest_init(int port) {
