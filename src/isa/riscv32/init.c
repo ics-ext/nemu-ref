@@ -27,11 +27,16 @@ static const uint32_t img [] = {
 };
 
 static void restart() {
+  memset(&cpu, 0, sizeof(cpu));
+  memset(&cpu_sr, 0, sizeof(cpu_sr));
+
   /* Set the initial program counter. */
   cpu.pc = RESET_VECTOR;
 
   /* The zero register is always 0. */
   cpu.gpr[0] = 0;
+
+  cpu_sr.csr[MSTATUS] = MUXDEF(CONFIG_RV64, 0xa00001800, 0x1800);
 }
 
 void init_isa() {

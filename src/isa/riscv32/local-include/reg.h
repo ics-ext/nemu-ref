@@ -30,4 +30,6 @@ static inline const char* reg_name(int idx) {
   return regs[check_reg_idx(idx)];
 }
 
+#define sr(number) (cpu_sr.csr[number])
+
 #endif

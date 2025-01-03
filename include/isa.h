@@ -22,6 +22,7 @@
 // The macro `__GUEST_ISA__` is defined in $(CFLAGS).
 // It will be expanded as "x86" or "mips32" ...
 typedef concat(__GUEST_ISA__, _CPU_state) CPU_state;
+typedef concat(__GUEST_ISA__, _SR_state) SR_state;
 typedef concat(__GUEST_ISA__, _ISADecodeInfo) ISADecodeInfo;
 
 // monitor
@@ -30,6 +31,7 @@ void init_isa();
 
 // reg
 extern CPU_state cpu;
+extern SR_state cpu_sr;
 void isa_reg_display();
 word_t isa_reg_str2val(const char *name, bool *success);
 

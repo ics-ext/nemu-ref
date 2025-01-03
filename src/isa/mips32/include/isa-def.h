@@ -19,6 +19,10 @@
 #include <common.h>
 
 typedef struct {
+  // TODO: Implement sr
+} mips32_SR_state;
+
+typedef struct {
   word_t gpr[32];
   word_t pad[5];
   vaddr_t pc;

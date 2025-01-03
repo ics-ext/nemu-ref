@@ -18,6 +18,9 @@
 
 #include <common.h>
 
+typedef struct {
+  // TODO
+} x86_SR_state;
 
 /* TODO: Re-organize the `CPU_state' structure to match the register
  * encoding scheme in i386 instruction format. For example, if we

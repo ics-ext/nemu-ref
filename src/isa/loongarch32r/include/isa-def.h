@@ -19,6 +19,10 @@
 #include <common.h>
 
 typedef struct {
+  // TODO
+} loongarch32r_SR_state;
+
+typedef struct {
   word_t gpr[32];
   vaddr_t pc;
 } loongarch32r_CPU_state;
